@@ -36,17 +36,7 @@ MESSAGE(STATUS "LCIO libs: ${LCIO_LIBRARIES}")
 
 FIND_PACKAGE(tensorflow-lite 2.7.0 REQUIRED)
 INCLUDE_DIRECTORIES(${tensorflow-lite_INCLUDE_DIRS})
-LINK_LIBRARIES(${tensorflow-lite_LIBRARIES})
-LINK_LIBRARIES("/usr/lib64/libruy.a"
-               "/usr/lib64/libXNNPACK.a"
-               "/usr/lib64/libflatbuffers.a"
-               "/usr/lib64/libclog.a"
-               "/usr/lib64/libcpuinfo.a"
-               "/usr/lib64/libpthreadpool.a"
-               "/usr/lib64/libfarmhash.a"
-               "/usr/lib64/libfft2d_fftsg.a"
-               "/usr/lib64/libfft2d_fftsg2d.a"
-               "/usr/lib64/libdl.so")
+LINK_LIBRARIES(${tensorflow-lite_LIBRARIES} ${CMAKE_DL_LIBS})
 
 #FIND_PACKAGE(Eigen3 3.3.7 REQUIRED)
 #INCLUDE_DIRECTORIES(${Eigen3_INCLUDE_DIRS})
